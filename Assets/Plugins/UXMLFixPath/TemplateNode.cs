@@ -12,17 +12,22 @@ namespace Nxlk.UXMLFixPath
         private const string OptionalSpacesPattern = @"\s*";
         private const string RequiredSpacesPattern = @"\s+";
         private const string PathAttributePattern = @"path=""[^""]*""";
+        private const string SrcAttributePattern = @"src=""([^""]*)""";
         private const string NameAttributePattern = @"name=""[^""]*""";
-        private const string SrcKeyWord = "src=";
-        private const string SrcAttributePattern = SrcKeyWord + @"=""([^""]*)""";
 
         private const string TemplateWithPathPattern =
             OptionalSpacesPattern
             + OpeningTagPattern
             + RequiredSpacesPattern
+            + "(?:"
             + PathAttributePattern
             + RequiredSpacesPattern
             + NameAttributePattern
+            + "|"
+            + NameAttributePattern
+            + RequiredSpacesPattern
+            + PathAttributePattern
+            + ")"
             + ClosingTagPattern
             + OptionalSpacesPattern;
 
@@ -30,9 +35,15 @@ namespace Nxlk.UXMLFixPath
             OptionalSpacesPattern
             + OpeningTagPattern
             + RequiredSpacesPattern
+            + "(?:"
             + NameAttributePattern
             + RequiredSpacesPattern
             + SrcAttributePattern
+            + "|"
+            + SrcAttributePattern
+            + RequiredSpacesPattern
+            + NameAttributePattern
+            + ")"
             + ClosingTagPattern
             + OptionalSpacesPattern;
 
@@ -91,10 +102,10 @@ namespace Nxlk.UXMLFixPath
         }
 
         [Pure]
-        public TemplateNode WithSrcAttribute(SrcAttribute newSrcAttribute)
+        private TemplateNode WithSrcAttribute(SrcAttribute newSrcAttribute)
         {
             return new TemplateNode(
-                Regex.Replace(_template, SrcAttributePattern, $"{SrcKeyWord}\"{newSrcAttribute}\"")
+                Regex.Replace(_template, SrcAttributePattern, $"src=\"{newSrcAttribute}\"")
             );
         }
 
