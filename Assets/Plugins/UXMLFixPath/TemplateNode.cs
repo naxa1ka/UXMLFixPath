@@ -14,7 +14,7 @@ namespace Nxlk.UXMLFixPath
         private const string PathAttributePattern = @"path=""[^""]*""";
         private const string NameAttributePattern = @"name=""[^""]*""";
         private const string SrcKeyWord = "src=";
-        private const string SrcAttributePattern = SrcKeyWord + @"""[^""]*""";
+        private const string SrcAttributePattern = SrcKeyWord + @"=""([^""]*)""";
 
         private const string TemplateWithPathPattern =
             OptionalSpacesPattern
@@ -50,7 +50,7 @@ namespace Nxlk.UXMLFixPath
                 var match = Regex.Match(_template, SrcAttributePattern);
                 if (!match.Success)
                     throw new UnableToParseException("Template is invalid");
-                return new SrcAttribute(match.Groups[1].Value);
+                return new SrcAttribute(match.Groups[1].Value); // Получаем значение src
             }
         }
 
@@ -63,13 +63,13 @@ namespace Nxlk.UXMLFixPath
             if (!template.TrimStart().StartsWith(OpeningTagPattern))
                 throw new WrongNodeTypeException("This is not a template node");
 
-            if (!IsWithPath || !IsWithSrc)
+            if (!IsWithPath && !IsWithSrc)
                 throw new UnableToParseException("Invalid template " + template);
         }
 
         public static bool TryCreate(
             string template,
-            [NotNullWhen(returnValue: true)] out TemplateNode? templateNode
+            [NotNullWhen(true)] out TemplateNode? templateNode
         )
         {
             try
@@ -94,10 +94,7 @@ namespace Nxlk.UXMLFixPath
         public TemplateNode WithSrcAttribute(SrcAttribute newSrcAttribute)
         {
             return new TemplateNode(
-                _template.Replace(
-                    $"{SrcKeyWord}\"{SrcAttribute}\"",
-                    $"{SrcKeyWord}\"{newSrcAttribute}\""
-                )
+                Regex.Replace(_template, SrcAttributePattern, $"{SrcKeyWord}\"{newSrcAttribute}\"")
             );
         }
 
