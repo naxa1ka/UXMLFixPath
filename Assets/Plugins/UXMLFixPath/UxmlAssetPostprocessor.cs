@@ -18,7 +18,9 @@ namespace Nxlk.UXMLFixPath
                     .Concat(movedFromAssetPaths)
                     .Any(assetPath => assetPath.EndsWith(".uxml"))
             )
+            {
                 return;
+            }
 
             new UpdateUXMLPathsCommand().Execute();
         }

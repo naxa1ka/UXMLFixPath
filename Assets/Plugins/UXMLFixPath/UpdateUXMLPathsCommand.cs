@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
+using System.Linq;
 using UnityEngine.UIElements;
 
 namespace Nxlk.UXMLFixPath
@@ -28,10 +30,14 @@ namespace Nxlk.UXMLFixPath
         public UpdateUXMLPathsCommand()
             : this(new UnityLogger()) { }
 
-        public void Execute()
-        {
-            var assets = _assetDatabase.FindAssets(new TypeAssetFilter(typeof(VisualTreeAsset)));
+        public void Execute() =>
+            Execute(_assetDatabase.FindAssets(new TypeAssetFilter(typeof(VisualTreeAsset))));
 
+        public void Execute(IEnumerable<string> assetPaths) =>
+            Execute(assetPaths.Select(assetPath => new Asset(assetPath)));
+
+        public void Execute(IEnumerable<IAsset> assets)
+        {
             var updatedFiles = 0;
             foreach (var asset in assets)
             {

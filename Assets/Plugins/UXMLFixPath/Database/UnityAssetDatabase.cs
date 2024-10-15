@@ -10,11 +10,7 @@ namespace Nxlk.UXMLFixPath
         {
             return AssetDatabase
                 .FindAssets(filter.AsString())
-                .Select(guidAsString =>
-                {
-                    var guid = new GUID(guidAsString);
-                    return new Asset(guid, () => GUIDToAssetPath(guid));
-                });
+                .Select(guidAsString => new Asset(() => GUIDToAssetPath(new GUID(guidAsString))));
         }
 
         public string GUIDToAssetPath(GUID guid)

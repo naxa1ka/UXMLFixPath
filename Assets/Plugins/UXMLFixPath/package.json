@@ -1,7 +1,7 @@
 {
   "name": "com.nxlk.uxml-fix-path",
   "displayName": "UXML Fix Path",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Tool for fixing uxml",
   "dependencies": {}
 }
