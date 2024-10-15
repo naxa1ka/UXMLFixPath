@@ -61,7 +61,7 @@ namespace Nxlk.UXMLFixPath
                 var match = Regex.Match(_template, SrcAttributePattern);
                 if (!match.Success)
                     throw new UnableToParseException("Template is invalid");
-                return new SrcAttribute(match.Groups[1].Value); // Получаем значение src
+                return new SrcAttribute(match.Groups[1].Value);
             }
         }
 
