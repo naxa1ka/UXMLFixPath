@@ -3,7 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Diagnostics.Contracts;
 using System.Text.RegularExpressions;
 
-namespace Nxlk.UXMLFixPath
+namespace Nxlk.UXMLSrcFixer
 {
     public class TemplateNode
     {

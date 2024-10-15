@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace Nxlk.UXMLFixPath
+namespace Nxlk.UXMLSrcFixer
 {
     public class FileSystem : IFileSystem
     {

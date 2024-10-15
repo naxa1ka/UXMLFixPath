@@ -1,7 +1,6 @@
 ﻿using System;
-using UnityEditor;
 
-namespace Nxlk.UXMLFixPath
+namespace Nxlk.UXMLSrcFixer
 {
     public class Asset : IAsset
     {

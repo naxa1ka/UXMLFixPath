@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Nxlk.UXMLFixPath
+namespace Nxlk.UXMLSrcFixer
 {
     public class UnityLogger : ILogger
     {

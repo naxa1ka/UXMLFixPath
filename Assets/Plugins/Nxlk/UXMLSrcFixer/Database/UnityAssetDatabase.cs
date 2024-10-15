@@ -2,7 +2,7 @@
 using System.Linq;
 using UnityEditor;
 
-namespace Nxlk.UXMLFixPath
+namespace Nxlk.UXMLSrcFixer
 {
     public class UnityAssetDatabase : IAssetDatabase
     {

@@ -1,5 +1,5 @@
 {
-    "name": "Nxlk.UXMLFixPath",
+    "name": "Nxlk.UXMLSrcFixer",
     "rootNamespace": "",
     "references": [],
     "includePlatforms": [

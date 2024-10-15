@@ -1,6 +1,6 @@
 using System;
 
-namespace Nxlk.UXMLFixPath
+namespace Nxlk.UXMLSrcFixer
 {
     public class WrongNodeTypeException : Exception
     {

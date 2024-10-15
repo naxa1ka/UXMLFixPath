@@ -1,4 +1,4 @@
-﻿namespace Nxlk.UXMLFixPath
+﻿namespace Nxlk.UXMLSrcFixer
 {
     public interface IAssetFilter
     {

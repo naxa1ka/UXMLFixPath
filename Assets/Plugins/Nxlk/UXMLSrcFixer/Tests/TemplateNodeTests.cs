@@ -1,6 +1,6 @@
 using NUnit.Framework;
 
-namespace Nxlk.UXMLFixPath.Tests
+namespace Nxlk.UXMLSrcFixer.Tests
 {
     public class TemplateNodeTests
     {

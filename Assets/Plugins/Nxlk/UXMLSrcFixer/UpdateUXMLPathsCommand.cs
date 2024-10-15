@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using UnityEngine.UIElements;
 
-namespace Nxlk.UXMLFixPath
+namespace Nxlk.UXMLSrcFixer
 {
     public class UpdateUXMLPathsCommand
     {
