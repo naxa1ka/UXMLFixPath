@@ -1,7 +1,7 @@
 {
   "name": "com.nxlk.uxmlsrcfixer",
   "displayName": "UXML Src Fixer",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "An editor tool that automatically updates references to nested UI templates in UXML files when they are moved or renamed, resolving Unity's issue with outdated template references.",
   "dependencies": {},
   "author": {
