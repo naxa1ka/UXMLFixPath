@@ -40,6 +40,8 @@ namespace Nxlk.UXMLFixPath
                 updatedFiles++;
             }
 
+            if (updatedFiles == 0)
+                return;
             _assetDatabase.Refresh();
             _logger.Log($"UXML Path Update Complete. Updated {updatedFiles} files.");
         }
