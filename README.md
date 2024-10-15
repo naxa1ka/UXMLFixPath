@@ -5,4 +5,4 @@
 3. Enter the following
    * https://github.com/naxa1ka/UXMLSrcFixer.git?path=Assets/Plugins/Nxlk/UXMLSrcFixer#tag
 
-Now: https://github.com/naxa1ka/UXMLSrcFixer.git?path=Assets/Plugins/Nxlk/UXMLSrcFixer#1.0.0
+Now: https://github.com/naxa1ka/UXMLSrcFixer.git?path=Assets/Plugins/Nxlk/UXMLSrcFixer#1.1.0
