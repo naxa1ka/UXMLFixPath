@@ -71,13 +71,18 @@ namespace Nxlk.UXMLFixPath
                 if (line == null)
                     break;
 
-                if (!line.TrimStart().StartsWith(TemplateNode.OpeningTag))
+                if (!TemplateNode.TryCreate(line, out var templateNode))
                 {
                     stringWriter.WriteLine(line);
                     continue;
                 }
 
-                var templateNode = new TemplateNode(line);
+                if (templateNode.IsWithPath)
+                {
+                    stringWriter.WriteLine(line);
+                    continue;
+                }
+
                 var newAssetPath = _assetDatabase.GUIDToAssetPath(templateNode.SrcAttribute.GUID);
                 var updatedLine = templateNode.WithNewPath(newAssetPath).ToString();
                 if (line == updatedLine)
